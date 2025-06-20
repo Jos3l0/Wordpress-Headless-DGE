@@ -1,8 +1,8 @@
 import "../globals.css"; // ✅ Importa los estilos globales
-import "@/styles/components/header.css";
-import "@/styles/components/footer.css";
-import "@/styles/components/home.css";
-import "@/styles/components/post.css";
+import "@/styles/components/Header.css";
+import "@/styles/components/Footer.css";
+import "@/styles/components/Home.css";
+import "@/styles/components/Post.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
