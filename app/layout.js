@@ -1,9 +1,16 @@
+import "../globals.css"; // ✅ Importa los estilos globales
 import "@/styles/components/header.css";
 import "@/styles/components/footer.css";
 import "@/styles/components/home.css";
 import "@/styles/components/post.css";
+
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header"; // Importamos el Header dinámico
+
+export const metadata = {
+  title: "WordPress Headless DGE",
+  description: "Sitio oficial de noticias de la Dirección General de Escuelas de Mendoza",
+};
 
 export default function Layout({ children }) {
   return (
@@ -16,4 +23,3 @@ export default function Layout({ children }) {
     </html>
   );
 }
-
