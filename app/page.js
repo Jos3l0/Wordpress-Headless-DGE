@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <main className="container">
       <div className="slider-full-width">
-        <HomeSlider />
+        <HomeSlider /> 
       </div>
 
       <section className="post-section-container">

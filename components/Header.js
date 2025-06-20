@@ -8,7 +8,7 @@ export default function Header() {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    async function fetchMenu() {
+    async function fetchMenu() { 
       try {
         const response = await fetch("https://des.mendoza.edu.ar/wp-json/wp/v2/menu-portal-restaurado");
         const data = await response.json();
