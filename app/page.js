@@ -18,7 +18,8 @@ export default async function Home() {
         <h1 className="post-section">Últimas Noticias</h1>
         <div className="post-grid">
           {latestPosts.map((post) => {
-            const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
+            const featuredImage =
+              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
             const formattedDate = new Date(post.date).toLocaleDateString("es-ES", {
               day: "2-digit",
               month: "long",
@@ -42,7 +43,8 @@ export default async function Home() {
         <h1 className="post-section">Noticias de las Escuelas</h1>
         <div className="post-grid">
           {schoolNews.map((post) => {
-            const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
+            const featuredImage =
+              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
             const formattedDate = new Date(post.date).toLocaleDateString("es-ES", {
               day: "2-digit",
               month: "long",
@@ -66,7 +68,8 @@ export default async function Home() {
         <div className="concursos-y-eventos">
           <h2>Concursos y eventos</h2>
           {contestEvents.map((post) => {
-            const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
+            const featuredImage =
+              post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/default-image.jpg";
             const formattedDate = new Date(post.date).toLocaleDateString("es-ES", {
               day: "2-digit",
               month: "long",

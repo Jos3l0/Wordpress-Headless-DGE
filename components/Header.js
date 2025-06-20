@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Header() {
   const [menuItems, setMenuItems] = useState([]);
@@ -13,9 +13,7 @@ export default function Header() {
         const response = await fetch("https://des.mendoza.edu.ar/wp-json/wp/v2/menu-portal-restaurado");
         const data = await response.json();
 
-        if (!Array.isArray(data)) {
-          throw new Error("Estructura de datos del menú incorrecta.");
-        }
+        if (!Array.isArray(data)) throw new Error("Estructura de datos del menú incorrecta.");
 
         const menuMap = {};
         data.forEach((item) => {
