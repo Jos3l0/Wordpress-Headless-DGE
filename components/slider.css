@@ -1,0 +1,8 @@
+/* styles/components/slider.css */
+.slider-container .slick-dots li button:before {
+  color: #fff;
+}
+.slider-container .slick-prev,
+.slider-container .slick-next {
+  z-index: 10;
+}
