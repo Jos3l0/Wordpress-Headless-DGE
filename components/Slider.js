@@ -7,9 +7,9 @@ export default function Slider() {
 
   useEffect(() => {
     setImages([
-      "https://www.mendoza.edu.ar/wp-content/uploads/sites/3/2023/09/banner1.jpg",
-      "https://www.mendoza.edu.ar/wp-content/uploads/sites/3/2023/09/banner2.jpg",
-      "https://www.mendoza.edu.ar/wp-content/uploads/sites/3/2023/09/banner3.jpg"
+      "https://des.mendoza.edu.ar/wp-content/uploads/2025/03/slide-mes-lectura-2025-escritorio.png",
+      "https://www.mendoza.edu.ar/wp-content/uploads/2025/06/slide-matematica-monitor.jpg",
+      
     ]);
   }, []);
 
