@@ -8,26 +8,31 @@ const images = [
 ];
 
 export default function Slider() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-64 md:h-96 overflow-hidden rounded-xl shadow-lg">
-      {images.map((src, index) => (
-        <img
-          key={index}
-          src={src}
-          alt={`Slide ${index}`}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
+    <div className="relative w-full h-64 md:h-96 overflow-hidden rounded-xl">
+      {images.map((image, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            i === index ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
-        />
+        >
+          <img
+            src={image}
+            alt={`Slide ${i}`}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
       ))}
     </div>
   );
