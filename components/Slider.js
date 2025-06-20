@@ -8,32 +8,61 @@ const images = [
 ];
 
 export default function Slider() {
-  const [index, setIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+      nextSlide();
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-64 md:h-96 overflow-hidden rounded-xl">
-      {images.map((image, i) => (
+    <div className="relative w-full max-w-[1600px] mx-auto h-[481px] overflow-hidden rounded-xl shadow-lg">
+      {images.map((src, index) => (
         <div
-          key={i}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            i === index ? "opacity-100 z-10" : "opacity-0 z-0"
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
           <img
-            src={image}
-            alt={`Slide ${i}`}
-            className="w-full h-full object-cover"
-            loading="lazy"
+            src={src}
+            alt={`Slide ${index}`}
+            className="w-full h-[481px] object-cover"
+            width={1600}
+            height={481}
           />
         </div>
       ))}
+
+      {/* Flecha izquierda */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-black px-3 py-1 rounded-full shadow z-20"
+        aria-label="Anterior"
+      >
+        &#10094;
+      </button>
+
+      {/* Flecha derecha */}
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white text-black px-3 py-1 rounded-full shadow z-20"
+        aria-label="Siguiente"
+      >
+        &#10095;
+      </button>
     </div>
   );
 }
