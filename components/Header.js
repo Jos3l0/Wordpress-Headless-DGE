@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
           <img
-            src="/logo-dge.png"
+            src="https://www.mendoza.edu.ar/wp-content/uploads/2022/02/logodge2024enc.png"
             alt="Logo DGE"
             className="h-12 w-auto"
           />
