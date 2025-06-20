@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -21,19 +22,17 @@ export default function Slider() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full max-w-[1600px] mx-auto h-[481px] overflow-hidden rounded-xl shadow-lg">
+    <div className="relative w-full max-w-[1600px] mx-auto h-[481px] overflow-hidden rounded-xl shadow-lg flex items-center justify-center">
       {images.map((src, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+          className={`w-full h-full flex-shrink-0 transition-opacity duration-1000 ${
+            index === currentIndex ? "block opacity-100" : "hidden opacity-0"
           }`}
         >
           <img
